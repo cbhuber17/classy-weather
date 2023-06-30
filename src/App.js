@@ -1,21 +1,33 @@
 import React from "react";
 
-class Counter extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { count: 0 };
+    this.state = { location: "Calgary" };
+    this.fetchWeather = this.fetchWeather.bind(this);
+  }
+
+  fetchWeather() {
+    console.log("Loading data...");
   }
 
   render() {
     return (
-      <div>
-        <button>-</button>
-        <span>{this.state.count}</span>
-        <button>+</button>
+      <div className="app">
+        <h1>Classy Weather</h1>
+        <div>
+          <input
+            type="text"
+            placeholder="Search from location..."
+            value={this.state.location}
+            onChange={(e) => this.setState({ location: e.target.value })}
+          />
+        </div>
+        <button onClick={this.fetchWeather}>Get weather</button>
       </div>
     );
   }
 }
 
-export default Counter;
+export default App;
