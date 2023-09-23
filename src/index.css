@@ -13,24 +13,39 @@ html {
 body {
   font-family: "Cinzel Decorative", cursive;
   font-size: 2rem;
-  height: 100vh;
-  color: #222;
-  background-color: #eabfb9;
+
+  @media (min-width: 1200px) {
+    height: 100vh;
+  }
+
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #222;
+  background-color: #eabfb9;
 }
 
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 112rem;
+  @media (min-width: 1200px) {
+    width: 112rem;
+  }
+  @media (min-width: 800px) and (max-width: 1200px) {
+    width: 75rem;
+  }
+  @media (min-width: 350px) and (max-width: 800px) {
+    width: 30rem;
+  }
   gap: 4rem;
   padding: 6rem 0;
   border: 2px solid #222;
   outline: 2px solid #222;
-  outline-offset: 1.2rem;
+
+  @media (min-width: 1200px) {
+    outline-offset: 1.2rem;
+  }
 }
 
 h1 {
@@ -38,6 +53,7 @@ h1 {
   font-size: 6rem;
   letter-spacing: 2px;
   word-spacing: 5px;
+  text-align: center;
 }
 
 h2 {
@@ -48,11 +64,18 @@ h2 {
 input {
   font-family: inherit;
   color: inherit;
-  font-size: 2rem;
   background-color: #f0d2ce;
   padding: 1.6rem 3.2rem;
   border: none;
-  width: 32rem;
+
+  @media (min-width: 1200px) {
+    width: 32rem;
+    font-size: 2rem;
+  }
+  @media (max-width: 1200px) {
+    width: 28rem;
+    font-size: 1.5rem;
+  }
 }
 
 input:focus {
@@ -61,7 +84,20 @@ input:focus {
 
 .weather {
   list-style: none;
-  display: flex;
+
+  @media (min-width: 1200px) {
+    display: flex;
+  }
+
+  @media (min-width: 800px) and (max-width: 1200px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (min-width: 350px) and (max-width: 800px) {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
   gap: 2.4rem;
 }
 
@@ -89,4 +125,35 @@ input:focus {
 .loader {
   font-size: 2.4rem;
   font-weight: 700;
+}
+
+/* Reset default button styles */
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Modern Button Styles */
+.modern-button {
+  background-color: #3498db;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modern-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+.modern-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.8);
 }
